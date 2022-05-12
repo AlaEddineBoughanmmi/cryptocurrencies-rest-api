@@ -1,0 +1,7 @@
+apiVersion : v1
+kind : ConfigMap
+metadata:
+  name : api-config
+data:
+  quoteURL : https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd
+  historicalPriceUrl : https://financialmodelingprep.com/api/v3/historical-price-full/crypto/

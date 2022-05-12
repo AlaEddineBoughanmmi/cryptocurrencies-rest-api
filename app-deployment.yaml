@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cryptocurrencies-api-deployment
+spec:
+  selector:
+    matchLabels:
+      app: cryptocurrencies-rest-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: cryptocurrencies-rest-api
+    spec:
+      containers:
+        - name: cryptocurrencies-rest-api
+          image: cryptocurrencies-rest-api:2.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:   # Setting Enviornmental Variables
+             - name: QUOTE_URL   # Setting QUOTE_URL from configMap
+               valueFrom :
+                 configMapKeyRef :
+                   name : app-config
+                   key :  quoteURL
+             - name: HISTORICAL_PRICE_URL  # Setting HISTORICAL_PRICE from configMap
+               valueFrom :
+                 configMapKeyRef :
+                   name : db-config
+                   key :  historicalPriceUrl
+             - name: API_KEY  # Setting API_KEY from Secret
+               valueFrom :
+                 secretKeyRef :
+                   name : api-secrets
+                   key :  apikey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cryptocurrencies-rest-svc
+spec:
+  selector:
+    app: cryptocurrencies-rest-api
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: NodePort

@@ -1,0 +1,15 @@
+minikube start
+eval $(minikube docker-env)
+docker build -t cryptocurrencies-rest-api:3.0.0 .
+docker tag bb38976d03cf aladinboughanmi/cryptocurrencies-rest-api:3.0.0
+kubectl appply -f app-configMap.yaml
+kubectl get configmap #checking
+kubectl apply -f app-secrets.yaml
+kubectl get secrets 
+kubectl apply -f app-deployment.yaml
+kubectl get deployments # check logs
+kubectl get svc
+kubectl get pods
+kubectl logs [POD_NAME]
+minikube ip
+./ngrok http http://IP:PORT -host-header="IP:PORT" --basic-auth 'ngrok:issecure'
