@@ -1,0 +1,8 @@
+tiers:
+  api-key: ${API_KEY}
+  api-quote-url: ${QUOTE_URL}
+  api-historical-price-url: ${HISTORICAL_PRICE_URL}
+#spring:
+#    mvc:
+#      pathmatch:
+#            matching-strategy: ant_path_matcher
