@@ -31,7 +31,7 @@ public class HistoricalQuoteServiceImpl implements HistoricalQuoteService{
         StringBuilder url  = new StringBuilder()
                 .append(appConfigProperties.apiHistoricalPriceUrl())
                 .append("/")
-                .append(symbol)
+                .append(symbol.toUpperCase())
                 .append("USD?apikey=")
                 .append(appConfigProperties.apiKey());
 
