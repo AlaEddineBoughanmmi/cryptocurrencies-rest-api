@@ -1,6 +1,6 @@
-package api.v1.services;
+package api.v1.service;
 
-import api.v1.models.CryptoQuote;
+import api.v1.model.CryptoQuote;
 
 import java.util.List;
 

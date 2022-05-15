@@ -1,10 +1,8 @@
-package api.v1.services;
+package api.v1.service;
 
 import api.v1.configuration.AppConfigProperties;
-import api.v1.models.CryptoQuote;
-import api.v1.models.HistoricalPrice;
+import api.v1.model.CryptoQuote;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

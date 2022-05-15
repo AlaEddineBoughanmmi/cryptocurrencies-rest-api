@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.cryptocurrencies</groupId>
 	<artifactId>cryptocurrencies-api</artifactId>
-	<version>4.0.0</version>
+	<version>5.0.0</version>
 	<name>cryptocurrencies-api</name>
 	<description>Simple Spring Boot cryptocurrencies REST API</description>
 	<properties>

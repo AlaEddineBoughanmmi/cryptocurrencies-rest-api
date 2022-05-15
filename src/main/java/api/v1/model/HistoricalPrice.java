@@ -1,4 +1,4 @@
-package api.v1.models;
+package api.v1.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
