@@ -8,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class LatestPricesServiceImpl implements LatestPricesService{
@@ -22,6 +21,6 @@ public class LatestPricesServiceImpl implements LatestPricesService{
     @Override
     public List<CryptoQuote> getLatestPrices(int limit) {
         CryptoQuote[] response = restTemplate.getForObject(appConfigProperties.apiQuoteUrl(), CryptoQuote[].class);
-        return Arrays.stream(response).limit(limit).collect(Collectors.toList());
+        return Arrays.stream(response).limit(limit).toList();
     }
 }
